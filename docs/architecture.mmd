@@ -1,0 +1,14 @@
+flowchart TD
+    U[User] --> CLI[Command-line menu]
+    CLI -->|Generate request| G[Input validation and character-set selection]
+    G --> CSPRNG[Python secrets CSPRNG]
+    CSPRNG --> SH[Secure shuffle]
+    SH --> OUT[Display generated password]
+    CLI -->|Analyze request| IN[getpass hidden input]
+    IN --> PAT[Length, categories and pattern checks]
+    PAT --> ENT[Assumption-based entropy estimate]
+    PAT --> ZX[Optional zxcvbn guessability estimator]
+    ENT --> REP[Terminal report and recommendations]
+    ZX --> REP
+    OUT --> END[No storage or network transmission by design]
+    REP --> END

@@ -1,0 +1,2 @@
+# Optional: improves password-strength estimation using pattern-aware guesses.
+zxcvbn>=4.4.28
